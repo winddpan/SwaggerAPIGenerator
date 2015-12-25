@@ -1,0 +1,276 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A9C09A31C2D3F57009D48BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09A21C2D3F57009D48BB /* main.m */; };
+		7A9C09AE1C2D4195009D48BB /* ModelMappingBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AA1C2D3FA8009D48BB /* ModelMappingBase.h */; };
+		7A9C09AF1C2D4195009D48BB /* ModelMappingBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AB1C2D3FA8009D48BB /* ModelMappingBase.m */; };
+		7A9C09B01C2D4195009D48BB /* SwaggerParser.h in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AC1C2D3FA8009D48BB /* SwaggerParser.h */; };
+		7A9C09B11C2D4195009D48BB /* SwaggerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AD1C2D3FA8009D48BB /* SwaggerParser.m */; };
+		7A9C09B91C2D4821009D48BB /* WhiteListGroups.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A9C09B71C2D4742009D48BB /* WhiteListGroups.json */; };
+		7A9C09C91C2D4956009D48BB /* ModelMapping.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A9C09B61C2D4742009D48BB /* ModelMapping.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A9C099D1C2D3F57009D48BB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				7A9C09C91C2D4956009D48BB /* ModelMapping.json in CopyFiles */,
+				7A9C09B91C2D4821009D48BB /* WhiteListGroups.json in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7A9C099F1C2D3F57009D48BB /* SwaggerAPIGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwaggerAPIGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A9C09A21C2D3F57009D48BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7A9C09AA1C2D3FA8009D48BB /* ModelMappingBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelMappingBase.h; sourceTree = "<group>"; };
+		7A9C09AB1C2D3FA8009D48BB /* ModelMappingBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelMappingBase.m; sourceTree = "<group>"; };
+		7A9C09AC1C2D3FA8009D48BB /* SwaggerParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwaggerParser.h; sourceTree = "<group>"; };
+		7A9C09AD1C2D3FA8009D48BB /* SwaggerParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwaggerParser.m; sourceTree = "<group>"; };
+		7A9C09B61C2D4742009D48BB /* ModelMapping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ModelMapping.json; sourceTree = "<group>"; };
+		7A9C09B71C2D4742009D48BB /* WhiteListGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WhiteListGroups.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A9C099C1C2D3F57009D48BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A9C09961C2D3F57009D48BB = {
+			isa = PBXGroup;
+			children = (
+				7A9C09B61C2D4742009D48BB /* ModelMapping.json */,
+				7A9C09B71C2D4742009D48BB /* WhiteListGroups.json */,
+				7A9C09A11C2D3F57009D48BB /* SwaggerAPIGenerator */,
+				7A9C09A01C2D3F57009D48BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A9C09A01C2D3F57009D48BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A9C099F1C2D3F57009D48BB /* SwaggerAPIGenerator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A9C09A11C2D3F57009D48BB /* SwaggerAPIGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				7A9C09A91C2D3FA8009D48BB /* Parser */,
+				7A9C09A21C2D3F57009D48BB /* main.m */,
+			);
+			path = SwaggerAPIGenerator;
+			sourceTree = "<group>";
+		};
+		7A9C09A91C2D3FA8009D48BB /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				7A9C09AA1C2D3FA8009D48BB /* ModelMappingBase.h */,
+				7A9C09AB1C2D3FA8009D48BB /* ModelMappingBase.m */,
+				7A9C09AC1C2D3FA8009D48BB /* SwaggerParser.h */,
+				7A9C09AD1C2D3FA8009D48BB /* SwaggerParser.m */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A9C099E1C2D3F57009D48BB /* SwaggerAPIGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A9C09A61C2D3F57009D48BB /* Build configuration list for PBXNativeTarget "SwaggerAPIGenerator" */;
+			buildPhases = (
+				7A9C099B1C2D3F57009D48BB /* Sources */,
+				7A9C099C1C2D3F57009D48BB /* Frameworks */,
+				7A9C099D1C2D3F57009D48BB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwaggerAPIGenerator;
+			productName = SwaggerAPIGenerator;
+			productReference = 7A9C099F1C2D3F57009D48BB /* SwaggerAPIGenerator */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A9C09971C2D3F57009D48BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Cimu;
+				TargetAttributes = {
+					7A9C099E1C2D3F57009D48BB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 7A9C099A1C2D3F57009D48BB /* Build configuration list for PBXProject "SwaggerAPIGenerator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7A9C09961C2D3F57009D48BB;
+			productRefGroup = 7A9C09A01C2D3F57009D48BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A9C099E1C2D3F57009D48BB /* SwaggerAPIGenerator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A9C099B1C2D3F57009D48BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A9C09AE1C2D4195009D48BB /* ModelMappingBase.h in Sources */,
+				7A9C09AF1C2D4195009D48BB /* ModelMappingBase.m in Sources */,
+				7A9C09B01C2D4195009D48BB /* SwaggerParser.h in Sources */,
+				7A9C09B11C2D4195009D48BB /* SwaggerParser.m in Sources */,
+				7A9C09A31C2D3F57009D48BB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7A9C09A41C2D3F57009D48BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7A9C09A51C2D3F57009D48BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7A9C09A71C2D3F57009D48BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7A9C09A81C2D3F57009D48BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A9C099A1C2D3F57009D48BB /* Build configuration list for PBXProject "SwaggerAPIGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A9C09A41C2D3F57009D48BB /* Debug */,
+				7A9C09A51C2D3F57009D48BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A9C09A61C2D3F57009D48BB /* Build configuration list for PBXNativeTarget "SwaggerAPIGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A9C09A71C2D3F57009D48BB /* Debug */,
+				7A9C09A81C2D3F57009D48BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A9C09971C2D3F57009D48BB /* Project object */;
+}
