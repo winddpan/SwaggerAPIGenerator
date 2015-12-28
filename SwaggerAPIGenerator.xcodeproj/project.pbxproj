@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A2C46F51C30D42000A08F53 /* ParserRegular.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C46F41C30D42000A08F53 /* ParserRegular.m */; };
 		7A9C09A31C2D3F57009D48BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09A21C2D3F57009D48BB /* main.m */; };
 		7A9C09AE1C2D4195009D48BB /* ModelMappingBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AA1C2D3FA8009D48BB /* ModelMappingBase.h */; };
 		7A9C09AF1C2D4195009D48BB /* ModelMappingBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AB1C2D3FA8009D48BB /* ModelMappingBase.m */; };
@@ -31,6 +32,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A2C46F31C30D42000A08F53 /* ParserRegular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserRegular.h; sourceTree = "<group>"; };
+		7A2C46F41C30D42000A08F53 /* ParserRegular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserRegular.m; sourceTree = "<group>"; };
 		7A9C099F1C2D3F57009D48BB /* SwaggerAPIGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwaggerAPIGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9C09A21C2D3F57009D48BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7A9C09AA1C2D3FA8009D48BB /* ModelMappingBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelMappingBase.h; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				7A9C09AB1C2D3FA8009D48BB /* ModelMappingBase.m */,
 				7A9C09AC1C2D3FA8009D48BB /* SwaggerParser.h */,
 				7A9C09AD1C2D3FA8009D48BB /* SwaggerParser.m */,
+				7A2C46F31C30D42000A08F53 /* ParserRegular.h */,
+				7A2C46F41C30D42000A08F53 /* ParserRegular.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				7A9C09B01C2D4195009D48BB /* SwaggerParser.h in Sources */,
 				7A9C09B11C2D4195009D48BB /* SwaggerParser.m in Sources */,
 				7A9C09A31C2D3F57009D48BB /* main.m in Sources */,
+				7A2C46F51C30D42000A08F53 /* ParserRegular.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +275,7 @@
 				7A9C09A81C2D3F57009D48BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

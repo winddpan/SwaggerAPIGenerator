@@ -7,6 +7,7 @@
 //
 
 #import "ModelMappingBase.h"
+#import "ParserRegular.h"
 
 static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
 @implementation ModelMappingBase
@@ -66,7 +67,7 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
     NSString *hPath = [self.localDirectiory stringByAppendingPathComponent:@"ModelMapping.json"];
     [_output writeToFile:hPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
-    NSLog(@"Done!");
+    NSLog(@"Done ModelMappingBase!");
 }
 
 - (void)requestAPISwaggerJSON:(NSString *)path {
@@ -94,59 +95,11 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
 }
 
 - (void)createLineByPath:(NSString *)path method:(NSString *)method parameters:(NSArray *)parameters {
-    NSMutableString *tPath = [[NSMutableString alloc] initWithString:path];
-    [tPath replaceOccurrencesOfString:@".json" withString:@"" options:0 range:NSMakeRange(0, tPath.length)];
-    [tPath replaceOccurrencesOfString:@"/v2/" withString:@"" options:0 range:NSMakeRange(0, tPath.length)];
-    
-    NSMutableString *className = [NSMutableString new];
-    [className appendString:@"Api"];
-    [className appendString:[method capitalizedString]];
-    [className appendString:@"_"];
-    
-    NSArray *cp =  [tPath componentsSeparatedByString:@"/"];
-    [cp enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
-        [className appendString:[self fixPathComponent:obj]];
-    }];
+    NSString *className = [ParserRegular classNameByPath:path mehtod:method];
     
     NSString *bundleValue = _bundleModelMapping[className] ?: @"";
-    
     [_output appendFormat:@"\"%@\" : \"%@\",\n", className, bundleValue];
 }
 
-- (NSString *)fixProperty:(NSString *)string {
-    __block NSString *new = @"";
-    NSArray *con = [string componentsSeparatedByString:@"_"];
-    [con enumerateObjectsUsingBlock:^(NSString *component, NSUInteger idx, BOOL *stop) {
-        if (idx == 0) {
-            new = component;
-        }else if (component.length > 0) {
-            NSString *firstChar = [component substringToIndex:1];
-            NSString *leftChars = [component substringFromIndex:1];
-            NSString *pre = [NSString stringWithFormat:@"%@%@", [firstChar uppercaseString], leftChars];
-            new = [new stringByAppendingString:pre];
-        }
-    }];
-    if ([new isEqualToString:@"id"]) {
-        new = @"Id";
-    }
-    if ([new isEqualToString:@"description"]) {
-        new = @"desc";
-    }
-    return new;
-}
-
-- (NSString *)fixPathComponent:(NSString *)component {
-    if ([component hasPrefix:@"{"] && [component hasSuffix:@"}"]) {
-        return @"";
-    }
-    if (component.length > 0) {
-        NSString *firstChar = [component substringToIndex:1];
-        NSString *leftChars = [component substringFromIndex:1];
-        NSString *new = [NSString stringWithFormat:@"%@%@", [firstChar uppercaseString], leftChars];
-        new = [new stringByReplacingOccurrencesOfString:@"_" withString:@""];
-        return new;
-    }
-    return @"";
-}
 
 @end

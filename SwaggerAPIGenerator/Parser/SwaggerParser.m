@@ -7,6 +7,7 @@
 //
 
 #import "SwaggerParser.h"
+#import "ParserRegular.h"
 
 #define SF(format, ...)  ([NSString stringWithFormat:format, ##__VA_ARGS__])
 
@@ -66,7 +67,7 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
     NSString *hPath = [self.localDirectiory stringByAppendingPathComponent:@"Api.h"];
     [self.hHeader writeToFile:hPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
-    NSLog(@"Done!");
+    NSLog(@"Done SwaggerParser!");
 }
 
 - (void)requestAPISwaggerJSON:(NSString *)path {
@@ -95,19 +96,7 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
 
 
 - (NSString *)createClassFileByPath:(NSString *)path method:(NSString *)method parameters:(NSArray *)parameters {
-    NSMutableString *tPath = [[NSMutableString alloc] initWithString:path];
-    [tPath replaceOccurrencesOfString:@".json" withString:@"" options:0 range:NSMakeRange(0, tPath.length)];
-    [tPath replaceOccurrencesOfString:@"/v2/" withString:@"" options:0 range:NSMakeRange(0, tPath.length)];
-    
-    NSMutableString *className = [NSMutableString new];
-    [className appendString:@"Api"];
-    [className appendString:[method capitalizedString]];
-    [className appendString:@"_"];
-    
-    NSArray *cp =  [tPath componentsSeparatedByString:@"/"];
-    [cp enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
-        [className appendString:[self fixPathComponent:obj]];
-    }];
+    NSString *className = [ParserRegular classNameByPath:path mehtod:method];
     
     // .h文件
     NSString *hPath = [self.localDirectiory stringByAppendingPathComponent:[className stringByAppendingString:@".h"]];
@@ -157,7 +146,7 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
             NSString *name = dict[@"name"];
             
             if ([name isEqualToString:arg]) {
-                fixedArg = [self fixProperty:arg];
+                fixedArg = [ParserRegular fixProperty:arg];
                 fixedArg = SF(@"_%@", fixedArg);
                 if (![type isEqualToString:@"string"]) {
                     fixedArg = SF(@"@(%@)", fixedArg);
@@ -206,7 +195,7 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
         NSString *name = dict[@"name"];
         NSString *paramType = dict[@"paramType"];
         NSString *description = dict[@"description"];
-        NSString *fixedName = [self fixProperty:name];
+        NSString *fixedName = [ParserRegular fixProperty:name];
         if (![[fixedName lowercaseString] hasPrefix:@"since"] && ![name isEqualToString:@"account_token"]) {
             [result appendFormat:@"@\"%@\" : @\"%@\",\n             ", fixedName, name];
         }
@@ -230,7 +219,7 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
         NSString *srcName = dict[@"name"];
         NSString *paramType = dict[@"paramType"];
         NSString *description = dict[@"description"];
-        NSString *name = [self fixProperty:srcName];
+        NSString *name = [ParserRegular fixProperty:srcName];
         
         if (![[name lowercaseString] hasPrefix:@"since"] && ![srcName isEqualToString:@"account_token"]) {
             [result appendString:@"\n"];
@@ -248,42 +237,6 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
         
     }];
     return result;
-}
-
-- (NSString *)fixProperty:(NSString *)string {
-    __block NSString *new = @"";
-    NSArray *con = [string componentsSeparatedByString:@"_"];
-    [con enumerateObjectsUsingBlock:^(NSString *component, NSUInteger idx, BOOL *stop) {
-        if (idx == 0) {
-            new = component;
-        }else if (component.length > 0) {
-            NSString *firstChar = [component substringToIndex:1];
-            NSString *leftChars = [component substringFromIndex:1];
-            NSString *pre = [NSString stringWithFormat:@"%@%@", [firstChar uppercaseString], leftChars];
-            new = [new stringByAppendingString:pre];
-        }
-    }];
-    if ([new isEqualToString:@"id"]) {
-        new = @"Id";
-    }
-    if ([new isEqualToString:@"description"]) {
-        new = @"desc";
-    }
-    return new;
-}
-
-- (NSString *)fixPathComponent:(NSString *)component {
-    if ([component hasPrefix:@"{"] && [component hasSuffix:@"}"]) {
-        return @"";
-    }
-    if (component.length > 0) {
-        NSString *firstChar = [component substringToIndex:1];
-        NSString *leftChars = [component substringFromIndex:1];
-        NSString *new = [NSString stringWithFormat:@"%@%@", [firstChar uppercaseString], leftChars];
-        new = [new stringByReplacingOccurrencesOfString:@"_" withString:@""];
-        return new;
-    }
-    return @"";
 }
 
 - (NSString *)reflectClassNameByClassName:(NSString *)className {
