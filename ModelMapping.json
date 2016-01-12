@@ -119,12 +119,12 @@
     
     "ApiGet_Assignment" : "UYAssignment",
     "ApiPut_AssignmentsUpdatestatus" : "UYAssignment",
-    "ApiGet_AssignmentsReply" : "",
-    "ApiPut_AssignmentsReply" : "",
+    "ApiGet_AssignmentsReply" : "UYAssignmentReply",
+    "ApiPut_AssignmentsReply" : "UYAssignmentReply",
     "ApiGet_AssignmentsRepliesReview" : "UYAssignmentReview",
     "ApiPost_AssignmentsRepliesReview" : "UYAssignmentReview",
     "ApiGet_AssignmentsReplies" : "UYAssignmentReply",
-    "ApiPost_AssignmentsReply" : "",
+    "ApiPost_AssignmentsReply" : "UYAssignmentReply",
     
     "ApiPost_EpisodesNode" : "",
     "ApiDelete_EpisodesNode" : "",
