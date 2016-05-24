@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A2BA7291CB792470004BFF5 /* ModelMappingBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2BA7281CB792470004BFF5 /* ModelMappingBase.m */; };
+		7A2BA72F1CB797270004BFF5 /* ApiModelReflect.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A2BA72E1CB795FE0004BFF5 /* ApiModelReflect.plist */; };
 		7A2C46F51C30D42000A08F53 /* ParserRegular.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C46F41C30D42000A08F53 /* ParserRegular.m */; };
 		7A9C09A31C2D3F57009D48BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09A21C2D3F57009D48BB /* main.m */; };
-		7A9C09AE1C2D4195009D48BB /* ModelMappingBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AA1C2D3FA8009D48BB /* ModelMappingBase.h */; };
-		7A9C09AF1C2D4195009D48BB /* ModelMappingBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AB1C2D3FA8009D48BB /* ModelMappingBase.m */; };
 		7A9C09B01C2D4195009D48BB /* SwaggerParser.h in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AC1C2D3FA8009D48BB /* SwaggerParser.h */; };
 		7A9C09B11C2D4195009D48BB /* SwaggerParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C09AD1C2D3FA8009D48BB /* SwaggerParser.m */; };
-		7A9C09B91C2D4821009D48BB /* WhiteListGroups.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A9C09B71C2D4742009D48BB /* WhiteListGroups.json */; };
-		7A9C09C91C2D4956009D48BB /* ModelMapping.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7A9C09B61C2D4742009D48BB /* ModelMapping.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,24 +22,23 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				7A9C09C91C2D4956009D48BB /* ModelMapping.json in CopyFiles */,
-				7A9C09B91C2D4821009D48BB /* WhiteListGroups.json in CopyFiles */,
+				7A2BA72F1CB797270004BFF5 /* ApiModelReflect.plist in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A2BA7271CB792470004BFF5 /* ModelMappingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelMappingBase.h; sourceTree = "<group>"; };
+		7A2BA7281CB792470004BFF5 /* ModelMappingBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelMappingBase.m; sourceTree = "<group>"; };
+		7A2BA72D1CB795C60004BFF5 /* ModelMapping.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ModelMapping.json; sourceTree = "<group>"; };
+		7A2BA72E1CB795FE0004BFF5 /* ApiModelReflect.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiModelReflect.plist; sourceTree = "<group>"; };
 		7A2C46F31C30D42000A08F53 /* ParserRegular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserRegular.h; sourceTree = "<group>"; };
 		7A2C46F41C30D42000A08F53 /* ParserRegular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserRegular.m; sourceTree = "<group>"; };
 		7A9C099F1C2D3F57009D48BB /* SwaggerAPIGenerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwaggerAPIGenerator; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A9C09A21C2D3F57009D48BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7A9C09AA1C2D3FA8009D48BB /* ModelMappingBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelMappingBase.h; sourceTree = "<group>"; };
-		7A9C09AB1C2D3FA8009D48BB /* ModelMappingBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelMappingBase.m; sourceTree = "<group>"; };
 		7A9C09AC1C2D3FA8009D48BB /* SwaggerParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwaggerParser.h; sourceTree = "<group>"; };
 		7A9C09AD1C2D3FA8009D48BB /* SwaggerParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwaggerParser.m; sourceTree = "<group>"; };
-		7A9C09B61C2D4742009D48BB /* ModelMapping.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ModelMapping.json; sourceTree = "<group>"; };
-		7A9C09B71C2D4742009D48BB /* WhiteListGroups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WhiteListGroups.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +55,6 @@
 		7A9C09961C2D3F57009D48BB = {
 			isa = PBXGroup;
 			children = (
-				7A9C09B61C2D4742009D48BB /* ModelMapping.json */,
-				7A9C09B71C2D4742009D48BB /* WhiteListGroups.json */,
 				7A9C09A11C2D3F57009D48BB /* SwaggerAPIGenerator */,
 				7A9C09A01C2D3F57009D48BB /* Products */,
 			);
@@ -76,6 +71,8 @@
 		7A9C09A11C2D3F57009D48BB /* SwaggerAPIGenerator */ = {
 			isa = PBXGroup;
 			children = (
+				7A2BA72E1CB795FE0004BFF5 /* ApiModelReflect.plist */,
+				7A2BA72D1CB795C60004BFF5 /* ModelMapping.json */,
 				7A9C09A91C2D3FA8009D48BB /* Parser */,
 				7A9C09A21C2D3F57009D48BB /* main.m */,
 			);
@@ -85,10 +82,10 @@
 		7A9C09A91C2D3FA8009D48BB /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				7A9C09AA1C2D3FA8009D48BB /* ModelMappingBase.h */,
-				7A9C09AB1C2D3FA8009D48BB /* ModelMappingBase.m */,
 				7A9C09AC1C2D3FA8009D48BB /* SwaggerParser.h */,
 				7A9C09AD1C2D3FA8009D48BB /* SwaggerParser.m */,
+				7A2BA7271CB792470004BFF5 /* ModelMappingBase.h */,
+				7A2BA7281CB792470004BFF5 /* ModelMappingBase.m */,
 				7A2C46F31C30D42000A08F53 /* ParserRegular.h */,
 				7A2C46F41C30D42000A08F53 /* ParserRegular.m */,
 			);
@@ -151,11 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A9C09AE1C2D4195009D48BB /* ModelMappingBase.h in Sources */,
-				7A9C09AF1C2D4195009D48BB /* ModelMappingBase.m in Sources */,
 				7A9C09B01C2D4195009D48BB /* SwaggerParser.h in Sources */,
 				7A9C09B11C2D4195009D48BB /* SwaggerParser.m in Sources */,
 				7A9C09A31C2D3F57009D48BB /* main.m in Sources */,
+				7A2BA7291CB792470004BFF5 /* ModelMappingBase.m in Sources */,
 				7A2C46F51C30D42000A08F53 /* ParserRegular.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

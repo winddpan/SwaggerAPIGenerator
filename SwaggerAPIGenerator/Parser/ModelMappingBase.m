@@ -37,12 +37,8 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
     [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
     NSLog(@"%@", self.localDirectiory);
     
-    NSString *whiteListPath = [[NSBundle mainBundle] pathForResource:@"WhiteListGroups" ofType:@"json"];
-    NSArray *whiteList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:whiteListPath] options:0 error:nil];
-    
-    NSString *modelMappingPath = [[NSBundle mainBundle] pathForResource:@"ModelMapping" ofType:@"json"];
-    NSDictionary *modelMapping = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:modelMappingPath] options:0 error:nil];
-    _bundleModelMapping = modelMapping;
+    NSString *modelMappingPath = [[NSBundle mainBundle] pathForResource:@"ApiModelReflect" ofType:@"plist"];
+    _bundleModelMapping = [[NSDictionary alloc] initWithContentsOfFile:modelMappingPath];
     
     NSURLRequest *indexRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[route stringByAppendingString:@".json"]]];
     
@@ -55,17 +51,16 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
             NSString *groupName = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
             groupName = [groupName stringByReplacingOccurrencesOfString:@".{format}" withString:@""];
             
-            if ([whiteList containsObject:groupName]) {
-                path = [path stringByReplacingOccurrencesOfString:@"{format}" withString:@"json"];
-                [self requestAPISwaggerJSON:path];
-            }
+            path = [path stringByReplacingOccurrencesOfString:@"{format}" withString:@"json"];
+            [self requestAPISwaggerJSON:path];
         }];
     }
     
     [_output appendString:@"\n}"];
     
-    NSString *hPath = [self.localDirectiory stringByAppendingPathComponent:@"ModelMapping.json"];
-    [_output writeToFile:hPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    NSString *hPath = [self.localDirectiory stringByAppendingPathComponent:@"ApiModelReflect.plist"];
+    NSDictionary *ApiModelReflect = [NSJSONSerialization JSONObjectWithData:[_output dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    [ApiModelReflect writeToFile:hPath atomically:YES];
     
     NSLog(@"Done ModelMappingBase!");
 }

@@ -41,10 +41,6 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
     self.hHeader = [NSMutableString new];
     [self.hHeader appendString:@"//\n// Api Header\n//\n"];
     
-    NSString *whiteListPath = [[NSBundle mainBundle] pathForResource:@"WhiteListGroups" ofType:@"json"];
-    NSData *whiteListData = [[NSData alloc] initWithContentsOfFile:whiteListPath];
-    NSArray *whiteList = [NSJSONSerialization JSONObjectWithData:whiteListData options:0 error:nil];
-    
     NSURLRequest *indexRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[route stringByAppendingString:@".json"]]];
     NSData *data = [NSURLConnection sendSynchronousRequest:indexRequest returningResponse:nil error:nil];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -56,11 +52,9 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
             NSString *groupName = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
             groupName = [groupName stringByReplacingOccurrencesOfString:@".{format}" withString:@""];
             
-            if ([whiteList containsObject:groupName]) {
-                path = [path stringByReplacingOccurrencesOfString:@"{format}" withString:@"json"];
-                [self.hHeader appendFormat:@"\n// %@\n", desc];
-                [self requestAPISwaggerJSON:path];
-            }
+            path = [path stringByReplacingOccurrencesOfString:@"{format}" withString:@"json"];
+            [self.hHeader appendFormat:@"\n// %@\n", desc];
+            [self requestAPISwaggerJSON:path];
         }];
     }
     
@@ -112,8 +106,8 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
     [hContent appendString:SF(@"@end")];
     [hContent writeToFile:hPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
-    
-    NSString *reflectClassName = [self reflectClassNameByClassName:className];
+    // 去除 reflectClassName， 使用外部字典管理映射，不再写入类里
+    //NSString *reflectClassName = [self reflectClassNameByClassName:className];
     
     // .m文件
     NSString *mPath = [self.localDirectiory stringByAppendingPathComponent:[className stringByAppendingString:@".m"]];
@@ -127,7 +121,7 @@ static const NSString *route = @"http://youyu.corp.cimu.com/v2/doc";
     [mContent appendString:SF(@"@implementation %@\n", className)];
     [mContent appendString:SF(@"\n- (NSString *)path {\n    return [NSString stringWithFormat:%@];\n}\n", [self pathFormatter:path parameters:parameters])];
     [mContent appendString:SF(@"\n- (NSString *)method {\n    return @\"%@\";\n}\n", method)];
-    [mContent appendString:SF(@"\n- (Class)reflectClass {\n    return %@;\n}\n", reflectClassName.length ? [NSString stringWithFormat:@"NSClassFromString(@\"%@\")", reflectClassName] : @"nil")];
+    //[mContent appendString:SF(@"\n- (Class)reflectClass {\n    return %@;\n}\n", reflectClassName.length ? [NSString stringWithFormat:@"NSClassFromString(@\"%@\")", reflectClassName] : @"nil")];
     [mContent appendString:SF(@"\n+ (NSDictionary *)parametersMap \n{\n    return %@;\n}\n", [self traversingParamListByParameters:parameters])];
     [mContent appendString:SF(@"\n@end")];
     [mContent writeToFile:mPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
